@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D687E99-0B40-4A5A-A1D1-9987DEBC0244}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PaisEstadoCidade</RootNamespace>
+    <AssemblyName>PaisEstadoCidade</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cidades.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="Estados.cs" />
+    <Compile Include="Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm.Designer.cs">
+      <DependentUpon>Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastros.Designer.cs">
+      <DependentUpon>FrmCadastros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadCidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadCidades.Designer.cs">
+      <DependentUpon>FrmCadCidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadEstados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadEstados.Designer.cs">
+      <DependentUpon>FrmCadEstados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadPaises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadPaises.Designer.cs">
+      <DependentUpon>FrmCadPaises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsCidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsCidades.Designer.cs">
+      <DependentUpon>FrmConsCidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsEstados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsEstados.Designer.cs">
+      <DependentUpon>FrmConsEstados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsPaises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsPaises.Designer.cs">
+      <DependentUpon>FrmConsPaises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultas.Designer.cs">
+      <DependentUpon>FrmConsultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces.cs" />
+    <Compile Include="Pai.cs" />
+    <Compile Include="Paises.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm.resx">
+      <DependentUpon>Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastros.resx">
+      <DependentUpon>FrmCadastros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadCidades.resx">
+      <DependentUpon>FrmCadCidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadEstados.resx">
+      <DependentUpon>FrmCadEstados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadPaises.resx">
+      <DependentUpon>FrmCadPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsCidades.resx">
+      <DependentUpon>FrmConsCidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsEstados.resx">
+      <DependentUpon>FrmConsEstados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsPaises.resx">
+      <DependentUpon>FrmConsPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultas.resx">
+      <DependentUpon>FrmConsultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
