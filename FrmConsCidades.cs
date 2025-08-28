@@ -13,21 +13,23 @@ namespace PaisEstadoCidade
         FrmCadCidades oFrmCadCidades;
         Cidades aCidade;
         Controller aCtrl;
+
         public FrmConsCidades()
         {
             InitializeComponent();
         }
-        protected override void Pesquisar()
+        public override void Pesquisar()
         {
             oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
             oFrmCadCidades.ShowDialog();
         }
-        protected override void Incluir()
+        public override void Incluir()
         {
+            oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
             oFrmCadCidades.ShowDialog();
         }
-        protected override void Excluir()
+        public override void Excluir()
         {
             string aux;
             oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
@@ -40,7 +42,7 @@ namespace PaisEstadoCidade
             oFrmCadCidades.DesbloquearTxt();
             oFrmCadCidades.btnSalvar.Text = aux;
         }
-        protected override void Alterar()
+        public override void Alterar()
         {
             oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
             oFrmCadCidades.LimpaTxt();

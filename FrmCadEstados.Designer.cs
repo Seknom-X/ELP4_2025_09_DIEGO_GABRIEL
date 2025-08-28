@@ -39,17 +39,13 @@
             this.txtCodigoPais = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // txtDatCad
-            // 
-            this.txtDatCad.Enabled = false;
-            // 
-            // txtUltAlt
-            // 
-            this.txtUltAlt.Enabled = false;
-            // 
             // btnSalvar
             // 
             this.btnSalvar.TabIndex = 5;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.ForeColor = System.Drawing.SystemColors.WindowText;
             // 
             // btnSair
             // 

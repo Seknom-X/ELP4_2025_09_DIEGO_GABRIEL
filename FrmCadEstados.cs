@@ -13,7 +13,7 @@ namespace PaisEstadoCidade
         FrmConsPaises oFrmConsPaises;
         Estados oEstado;
         Controller aCtrl;
-        Paises oPais;
+        
         public FrmCadEstados()
         {
             InitializeComponent();
@@ -31,6 +31,7 @@ namespace PaisEstadoCidade
             oEstado.Codigo = Convert.ToInt32(txtCodigo.Text);
             oEstado.Estado = txtEstado.Text;
             oEstado.Uf = txtUF.Text;
+            oEstado.OPais.Codigo = Convert.ToInt32(txtCodigoPais.Text);
             oEstado.OPais.Pais = txtPais.Text;
             
             //aCtrl.Salvar(oEstado);
@@ -40,13 +41,15 @@ namespace PaisEstadoCidade
             this.txtCodigo.Text = Convert.ToString(oEstado.Codigo);
             this.txtEstado.Text = oEstado.Estado;
             this.txtUF.Text = Convert.ToString(oEstado.Uf);
+            this.txtCodigoPais.Text = Convert.ToString(oEstado.OPais.Codigo);
             this.txtPais.Text = oEstado.OPais.Pais;
         }
         public override void LimpaTxt()
         {
             this.txtCodigo.Text = "0";
             this.txtEstado.Clear();
-            this.txtUF.Text = "0";
+            this.txtUF.Clear();
+            this.txtCodigoPais.Text = "0";
             this.txtPais.Clear();
         }
         public override void BloquearTxt()
@@ -54,6 +57,7 @@ namespace PaisEstadoCidade
             this.txtCodigo.Enabled = false;
             this.txtEstado.Enabled = false;
             this.txtUF.Enabled = false;
+            this.txtCodigoPais.Enabled = false;
             this.txtPais.Enabled = false;
         }
         public override void DesbloquearTxt()
@@ -61,6 +65,7 @@ namespace PaisEstadoCidade
             this.txtCodigo.Enabled = true;
             this.txtEstado.Enabled = true;
             this.txtUF.Enabled = true;
+            this.txtCodigoPais.Enabled = true;
             this.txtPais.Enabled = true;
         }
         public void setFrmConsPaises(object obj)

@@ -17,17 +17,18 @@ namespace PaisEstadoCidade
         {
             InitializeComponent();
         }
-        protected override void Pesquisar()
+        public override void Pesquisar()
         {
             oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
             oFrmCadEstados.ShowDialog();
         }
-        protected override void Incluir()
+        public override void Incluir()
         {
+            oFrmCadEstados.LimpaTxt();
             oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
             oFrmCadEstados.ShowDialog();
         }
-        protected override void Excluir()
+        public override void Excluir()
         {
             string aux;
             oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
@@ -40,7 +41,7 @@ namespace PaisEstadoCidade
             oFrmCadEstados.DesbloquearTxt();
             oFrmCadEstados.btnSalvar.Text = aux;
         }
-        protected override void Alterar()
+        public override void Alterar()
         {
             oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
             oFrmCadEstados.LimpaTxt();

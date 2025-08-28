@@ -14,19 +14,19 @@ namespace PaisEstadoCidade
         {
             InitializeComponent();
         }
-        protected virtual void Pesquisar()
+        public virtual void Pesquisar()
         {
         
         }
-        protected virtual void Incluir()
+        public virtual void Incluir()
         {
 
         }
-        protected virtual void Excluir()
+        public virtual void Excluir()
         {
 
         }
-        protected virtual void Alterar()
+        public virtual void Alterar()
         {
 
         }
