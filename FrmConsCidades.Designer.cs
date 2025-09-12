@@ -28,36 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.colCidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCodEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnIncluir
             // 
             this.btnIncluir.Location = new System.Drawing.Point(452, 415);
-            this.btnIncluir.TabIndex = 2;
             // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(533, 415);
-            this.btnAlterar.TabIndex = 3;
             // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(614, 415);
-            this.btnExcluir.TabIndex = 4;
             // 
-            // btnPesquisar
+            // ListV
             // 
-            this.btnPesquisar.TabIndex = 1;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.TabIndex = 0;
+            this.ListV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colCidade,
+            this.colDDD,
+            this.colCodEstado,
+            this.colEstado});
             // 
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(695, 415);
             this.btnSair.Size = new System.Drawing.Size(93, 23);
-            this.btnSair.TabIndex = 5;
+            // 
+            // colCidade
+            // 
+            this.colCidade.Text = "Cidade";
+            this.colCidade.Width = 200;
+            // 
+            // colDDD
+            // 
+            this.colDDD.Text = "DDD";
+            this.colDDD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // colCodEstado
+            // 
+            this.colCodEstado.Text = "Código";
+            // 
+            // colEstado
+            // 
+            this.colEstado.Text = "Estado";
+            this.colEstado.Width = 200;
             // 
             // FrmConsCidades
             // 
@@ -71,5 +90,10 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ColumnHeader colCidade;
+        private System.Windows.Forms.ColumnHeader colDDD;
+        private System.Windows.Forms.ColumnHeader colCodEstado;
+        private System.Windows.Forms.ColumnHeader colEstado;
     }
 }

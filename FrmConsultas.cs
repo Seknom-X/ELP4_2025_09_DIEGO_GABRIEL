@@ -30,7 +30,10 @@ namespace PaisEstadoCidade
         {
 
         }
+        protected virtual void CarregarLV()
+        {
 
+        }
         private void btnIncluir_Click(object sender, EventArgs e)
         {
             Incluir();

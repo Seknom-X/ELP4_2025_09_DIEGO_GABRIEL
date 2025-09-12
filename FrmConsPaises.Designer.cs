@@ -28,38 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.colPais = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSigla = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDDI = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colMoeda = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnIncluir
             // 
             this.btnIncluir.Location = new System.Drawing.Point(450, 415);
-            this.btnIncluir.TabIndex = 2;
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(531, 415);
-            this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(612, 415);
-            this.btnExcluir.TabIndex = 4;
             // 
-            // btnPesquisar
+            // ListV
             // 
-            this.btnPesquisar.TabIndex = 1;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.TabIndex = 0;
+            this.ListV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colPais,
+            this.colSigla,
+            this.colDDI,
+            this.colMoeda});
             // 
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(693, 415);
             this.btnSair.Size = new System.Drawing.Size(95, 23);
-            this.btnSair.TabIndex = 5;
+            // 
+            // colPais
+            // 
+            this.colPais.Text = "País";
+            this.colPais.Width = 200;
+            // 
+            // colSigla
+            // 
+            this.colSigla.Text = "Sigla";
+            this.colSigla.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // colDDI
+            // 
+            this.colDDI.Text = "DDI";
+            this.colDDI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // colMoeda
+            // 
+            this.colMoeda.Text = "Moeda";
+            this.colMoeda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmConsPaises
             // 
@@ -73,5 +93,10 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ColumnHeader colPais;
+        private System.Windows.Forms.ColumnHeader colSigla;
+        private System.Windows.Forms.ColumnHeader colDDI;
+        private System.Windows.Forms.ColumnHeader colMoeda;
     }
 }

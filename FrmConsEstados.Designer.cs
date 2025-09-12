@@ -28,37 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.colEstado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colUf = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCodPais = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPais = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btnIncluir
             // 
             this.btnIncluir.Location = new System.Drawing.Point(450, 415);
-            this.btnIncluir.TabIndex = 2;
             // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(531, 415);
-            this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(612, 415);
-            this.btnExcluir.TabIndex = 4;
             // 
-            // btnPesquisar
+            // ListV
             // 
-            this.btnPesquisar.TabIndex = 1;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.TabIndex = 0;
+            this.ListV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colEstado,
+            this.colUf,
+            this.colCodPais,
+            this.colPais});
             // 
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(693, 415);
             this.btnSair.Size = new System.Drawing.Size(95, 23);
-            this.btnSair.TabIndex = 5;
+            // 
+            // colEstado
+            // 
+            this.colEstado.Text = "Estado";
+            this.colEstado.Width = 200;
+            // 
+            // colUf
+            // 
+            this.colUf.Text = "UF";
+            this.colUf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // colCodPais
+            // 
+            this.colCodPais.Text = "Código";
+            // 
+            // colPais
+            // 
+            this.colPais.Text = "Pais";
+            this.colPais.Width = 200;
             // 
             // FrmConsEstados
             // 
@@ -72,5 +91,10 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ColumnHeader colEstado;
+        private System.Windows.Forms.ColumnHeader colUf;
+        private System.Windows.Forms.ColumnHeader colCodPais;
+        private System.Windows.Forms.ColumnHeader colPais;
     }
 }
