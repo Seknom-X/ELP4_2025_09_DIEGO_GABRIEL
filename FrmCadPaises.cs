@@ -11,7 +11,7 @@ namespace PaisEstadoCidade
     public partial class FrmCadPaises : PaisEstadoCidade.FrmCadastros
     {
         Paises oPais;
-        Controller aCtrl;
+        CtrlPaises aCtrlPaises;
         public FrmCadPaises()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace PaisEstadoCidade
             if(obj != null)
                 oPais = (Paises)obj;
             if(ctrl != null)
-                aCtrl = (Controller)ctrl;
+                aCtrlPaises = (CtrlPaises)ctrl;
         }
         public override void Salvar()
         {

@@ -12,7 +12,7 @@ namespace PaisEstadoCidade
     {
         FrmConsEstados oFrmConsEstados;
         Cidades aCidade;
-        Controller aCtrl;
+        CtrlCidades aCtrlCidades;
   
         public FrmCadCidades()
         {
@@ -24,7 +24,7 @@ namespace PaisEstadoCidade
             if (obj != null)
                 aCidade = (Cidades)obj;
             if (ctrl != null)
-                aCtrl = (Controller)ctrl;
+                aCtrlCidades = (CtrlCidades)ctrl;
         }
         public override void Salvar()
         {
@@ -81,7 +81,7 @@ namespace PaisEstadoCidade
         {
             string btnSair = oFrmConsEstados.btnSair.Text;
             oFrmConsEstados.btnSair.Text = "Selecionar";
-            oFrmConsEstados.ConhecaObj(aCidade.OEstado, aCtrl);
+            oFrmConsEstados.ConhecaObj(aCidade.OEstado, aCtrlCidades);
             oFrmConsEstados.ShowDialog();
             this.txtCodigoEstado.Text = Convert.ToString(aCidade.OEstado.Codigo);
             this.txtEstado.Text = aCidade.OEstado.Estado.ToString();

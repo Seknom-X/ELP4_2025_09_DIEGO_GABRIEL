@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +26,10 @@ namespace PaisEstadoCidade
             this.sigla = sigla;
             this.ddi = ddi;
             this.moeda = moeda;
+        }
+        public Paises Clone()
+        {
+            return new Paises(this.Codigo, this.DatCad, this.UltAlt, this.pais, this.sigla, this.ddi, this.moeda);
         }
         public string Pais
         {

@@ -6,15 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaisEstadoCidade
 {
-    internal class Controller
+    internal class ColecoesEstados : Colecoes<Estados>
     {
-        public Controller()
-        {
-
-        }
-        public virtual void Salvar(object obj)
-        {
-
-        }
     }
 }

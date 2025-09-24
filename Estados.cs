@@ -23,6 +23,10 @@ namespace PaisEstadoCidade
             this.uf = uf;
             this.oPais = oPais;
         }
+        public Estados Clone()
+        {
+            return new Estados(this.Codigo, this.DatCad, this.UltAlt, this.estado, this.uf, this.oPais.Clone());
+        }
         public string Estado
         {
             get => estado;

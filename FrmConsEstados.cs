@@ -12,20 +12,20 @@ namespace PaisEstadoCidade
     {
         FrmCadEstados oFrmCadEstados;
         Estados oEstado;
-        Controller aCtrl;
+        CtrlEstados aCtrlEstados;
         public FrmConsEstados()
         {
             InitializeComponent();
         }
         public override void Pesquisar()
         {
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
+            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.ShowDialog();
         }
         public override void Incluir()
         {
             oFrmCadEstados.LimpaTxt();
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
+            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.ShowDialog();
             this.CarregarLV();
 
@@ -33,7 +33,7 @@ namespace PaisEstadoCidade
         public override void Excluir()
         {
             string aux;
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
+            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.LimpaTxt();
             oFrmCadEstados.CarregaTxt();
             oFrmCadEstados.BloquearTxt();
@@ -45,7 +45,7 @@ namespace PaisEstadoCidade
         }
         public override void Alterar()
         {
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrl);
+            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.LimpaTxt();
             oFrmCadEstados.CarregaTxt();
             oFrmCadEstados.ShowDialog();
@@ -70,7 +70,7 @@ namespace PaisEstadoCidade
             if (obj != null)
                 oEstado = (Estados)obj;
             if (ctrl != null)
-                aCtrl = (Controller)ctrl;
+                aCtrlEstados = (CtrlEstados)ctrl;
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)

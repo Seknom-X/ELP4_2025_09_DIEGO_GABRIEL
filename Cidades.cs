@@ -24,6 +24,10 @@ namespace PaisEstadoCidade
             this.ddd = ddd;
             this.oEstado = oEstado;
         }
+        public Cidades Clone()
+        {
+            return new Cidades(this.Codigo, this.DatCad, this.UltAlt, this.cidade, this.ddd, this.oEstado.Clone());
+        }   
         public string Cidade
         {
             get => cidade;

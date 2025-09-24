@@ -12,7 +12,7 @@ namespace PaisEstadoCidade
     {
         FrmCadCidades oFrmCadCidades;
         Cidades aCidade;
-        Controller aCtrl;
+        CtrlCidades aCtrlCidades;
 
         public FrmConsCidades()
         {
@@ -20,13 +20,13 @@ namespace PaisEstadoCidade
         }
         public override void Pesquisar()
         {
-            oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
+            oFrmCadCidades.ConhecaObj(aCidade, aCtrlCidades);
             oFrmCadCidades.ShowDialog();
         }
         public override void Incluir()
         {
             oFrmCadCidades.LimpaTxt();
-            oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
+            oFrmCadCidades.ConhecaObj(aCidade, aCtrlCidades);
             oFrmCadCidades.ShowDialog();
             this.CarregarLV();
 
@@ -34,7 +34,7 @@ namespace PaisEstadoCidade
         public override void Excluir()
         {
             string aux;
-            oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
+            oFrmCadCidades.ConhecaObj(aCidade, aCtrlCidades);
             oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.BloquearTxt();
@@ -46,7 +46,7 @@ namespace PaisEstadoCidade
         }
         public override void Alterar()
         {
-            oFrmCadCidades.ConhecaObj(aCidade, aCtrl);
+            oFrmCadCidades.ConhecaObj(aCidade, aCtrlCidades);
             oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.ShowDialog();
@@ -72,7 +72,7 @@ namespace PaisEstadoCidade
             if (obj != null)
                 aCidade = (Cidades)obj;
             if (ctrl != null)
-                aCtrl = (Controller)ctrl;
+                aCtrlCidades = (CtrlCidades)ctrl;
         }
     }
 }

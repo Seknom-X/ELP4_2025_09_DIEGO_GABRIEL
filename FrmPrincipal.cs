@@ -17,6 +17,9 @@ namespace PaisEstadoCidade
         Estados oEstado = new Estados();
         Cidades aCidade = new Cidades();
         Controller aCtrl = new Controller();
+        CtrlCidades aCtrlCidades = new CtrlCidades();
+        CtrlEstados aCtrlEstados = new CtrlEstados();
+        CtrlPaises aCtrlPaises = new CtrlPaises();
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -34,17 +37,17 @@ namespace PaisEstadoCidade
 
         private void paisesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            aInter.PecaPaises(oPais, aCtrl);
+            aInter.PecaPaises(oPais, aCtrlPaises);
         }
 
         private void estadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            aInter.PecaEstados(oEstado, aCtrl);
+            aInter.PecaEstados(oEstado, aCtrlEstados);
         }
 
         private void cidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            aInter.PecaCidades(aCidade, aCtrl);
+            aInter.PecaCidades(aCidade, aCtrlCidades);
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
