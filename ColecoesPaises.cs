@@ -55,6 +55,7 @@ namespace PaisEstadoCidade
         {
             foreach (var oPais in aLista)
             {
+                Console.WriteLine($"Codigo : {oPais.Codigo}");
                 Console.WriteLine($"Pais : {oPais.Pais}");
                 Console.WriteLine($"Sigla: {oPais.Sigla}");
                 Console.WriteLine($"DDI  : {oPais.Ddi}");

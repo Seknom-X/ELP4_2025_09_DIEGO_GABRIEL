@@ -65,12 +65,17 @@
     <Compile Include="Colecoes.cs" />
     <Compile Include="ColecoesCidades.cs" />
     <Compile Include="ColecoesEstados.cs" />
+    <Compile Include="ColecoesFornecedores.cs" />
     <Compile Include="ColecoesPaises.cs" />
+    <Compile Include="ColecoesProdutos.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="CtrlCidades.cs" />
     <Compile Include="CtrlEstados.cs" />
+    <Compile Include="CtrlFornecedores.cs" />
     <Compile Include="CtrlPaises.cs" />
+    <Compile Include="CtrlProdutos.cs" />
     <Compile Include="Estados.cs" />
+    <Compile Include="Fornecedores.cs" />
     <Compile Include="Frm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +139,7 @@
     <Compile Include="Interfaces.cs" />
     <Compile Include="Pai.cs" />
     <Compile Include="Paises.cs" />
+    <Compile Include="Produtos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frm.resx">
