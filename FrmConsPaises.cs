@@ -50,7 +50,7 @@ namespace PaisEstadoCidade
         }
         protected override void CarregarLV()
         {
-            foreach (var oPais in CtrlPaises.TodosPaises)
+            //foreach (var oPais in CtrlPaises.TodosPaises)
             {
             ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
             item.SubItems.Add(oPais.Pais);
