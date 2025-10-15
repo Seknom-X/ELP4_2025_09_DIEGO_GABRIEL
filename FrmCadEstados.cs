@@ -33,8 +33,7 @@ namespace PaisEstadoCidade
             oEstado.Uf = txtUF.Text;
             oEstado.OPais.Codigo = Convert.ToInt32(txtCodigoPais.Text);
             oEstado.OPais.Pais = txtPais.Text;
-            
-            //aCtrl.Salvar(oEstado);
+            MessageBox.Show(aCtrlEstados.Salvar(oEstado));
         }
         public override void CarregaTxt()
         {   
@@ -85,6 +84,11 @@ namespace PaisEstadoCidade
         }
 
         private void txtEstado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
 
         }

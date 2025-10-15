@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaisEstadoCidade
 {
-    internal class CtrlProdutos : Controller
+    internal class CtrlProdutos : Controller<Produtos>
     {
         ColecoesProdutos aColProdutos;
         public CtrlProdutos()

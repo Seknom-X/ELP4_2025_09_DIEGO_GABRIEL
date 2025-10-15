@@ -6,23 +6,18 @@ using System.Threading.Tasks;
 
 namespace PaisEstadoCidade
 {
-    internal class CtrlEstados : Controller
+    internal class CtrlEstados : Controller<Estados>
     {
+        DaoEstados aDaoEstados;
         ColecoesEstados aColEstados;
     public CtrlEstados()
         {
             aColEstados = new ColecoesEstados();
+            aDaoEstados = new DaoEstados();
         }
-        public override void Salvar(object obj)
+        public override string Salvar(object obj)
         {
-            //base.Salvar(obj);
-            Estados oEstado = (Estados)obj;
-            if (oEstado.Codigo == 0)
-                aColEstados.Inserir((Estados)obj);
-            else
-            {
-
-            }
+            return aDaoEstados.Salvar(obj);
         }
     }
 }

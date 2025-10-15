@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PaisEstadoCidade
 {
-    internal class Controller<T>
+    internal class DAO<T>
     {
-        public Controller()
+        protected SqlConnection cnn;
+        public DAO()
         {
-
+            cnn = Banco.Abrir();
         }
         public virtual string Excluir(object obj)
         {
@@ -33,6 +35,5 @@ namespace PaisEstadoCidade
         {
             return null;
         }
-
     }
 }

@@ -40,17 +40,16 @@
             // 
             // txtDatCad
             // 
-            this.txtDatCad.Enabled = false;
             this.txtDatCad.TabIndex = 50;
             // 
             // txtUltAlt
             // 
-            this.txtUltAlt.Enabled = false;
             this.txtUltAlt.TabIndex = 50;
             // 
             // btnSalvar
             // 
             this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // txtCodigo
             // 

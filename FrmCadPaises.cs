@@ -31,7 +31,7 @@ namespace PaisEstadoCidade
             oPais.Sigla = txtSigla.Text;
             oPais.Ddi = txtDDI.Text;
             oPais.Moeda = txtMoeda.Text;
-            //aCtrl.Salvar(oPais);
+            MessageBox.Show(aCtrlPaises.Salvar(oPais));
         }
         public override void CarregaTxt()
         {
@@ -72,6 +72,11 @@ namespace PaisEstadoCidade
         }
 
         private void btnSair_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
 
         }

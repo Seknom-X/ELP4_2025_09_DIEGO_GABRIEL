@@ -16,7 +16,7 @@ namespace PaisEstadoCidade
         Paises oPais = new Paises();
         Estados oEstado = new Estados();
         Cidades aCidade = new Cidades();
-        Controller aCtrl = new Controller();
+        Controller<object> aCtrl = new Controller<object>();
         CtrlCidades aCtrlCidades = new CtrlCidades();
         CtrlEstados aCtrlEstados = new CtrlEstados();
         CtrlPaises aCtrlPaises = new CtrlPaises();

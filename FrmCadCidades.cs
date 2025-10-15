@@ -33,7 +33,7 @@ namespace PaisEstadoCidade
             aCidade.Cidade = txtCidade.Text;
             aCidade.Ddd = txtDDD.Text;
             aCidade.OEstado.Codigo = Convert.ToInt32(txtCodigoEstado.Text);
-            //aCtrl.Salvar(oPais);
+            MessageBox.Show(aCtrlCidades.Salvar(aCidade));
         }
         public override void CarregaTxt()
         {

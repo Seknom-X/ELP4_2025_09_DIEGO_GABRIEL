@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace PaisEstadoCidade
 {
-    internal class CtrlCidades : Controller
+    internal class CtrlCidades : Controller<Cidades>
     {
         ColecoesCidades aColCidades;
+        DaoCidades aDaoCidades;
         public CtrlCidades()
         {
             aColCidades = new ColecoesCidades();
+            aDaoCidades = new DaoCidades();
         }
-        public override void Salvar(object obj)
+        public override string Salvar(object obj)
         {
             //base.Salvar(obj);
             Cidades aCidade = (Cidades)obj;
@@ -23,6 +25,7 @@ namespace PaisEstadoCidade
             {
 
             }
+            return null;
         }
     }
 }

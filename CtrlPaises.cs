@@ -7,23 +7,20 @@ using System.Threading.Tasks;
 
 namespace PaisEstadoCidade
 {
-    internal class CtrlPaises : Controller
+    internal class CtrlPaises : Controller<Paises>
     {
         ColecoesPaises aColPaises;
+        DaoPaises aDaoPaises;
         public CtrlPaises()
         {
             aColPaises = new ColecoesPaises();
+            aDaoPaises = new DaoPaises();
         }
-        public override void Salvar(object obj)
+        public override string Salvar(object obj)
         {
             //base.Salvar(obj);
-            Paises oPais = (Paises)obj;
-            if(oPais.Codigo == 0)
-                aColPaises.Inserir((Paises)obj);
-            else
-            {
-
-            }
+            return aDaoPaises.Salvar(obj);
+            
         }
     }
 }
