@@ -32,17 +32,18 @@ namespace PaisEstadoCidade
             string mSql = "", mOk = "";
             if (oEstado.Codigo == 0)
             {
-                mSql = "insert into paises(Estado, Uf, Pais_Id, datCad, ultAlt) values(@estado, @uf, @pais_id, @datCad, @ultAlt)";
+                mSql = "insert into estados(Estado, Uf, Pais_id, datCad, ultAlt, Pais) values(@estado, @uf, @pais_id, @datCad, @ultAlt, @pais)";
             }
             else
             {
-                mSql = "update estados set estado = @estado, uf = @uf, pais_id = @pais_id, datCad = @datCad, ultAlt = @ultAlt where codigo = @codigo";
+                mSql = "update estados set estado = @estado, uf = @uf, pais_id = @pais_id, datCad = @datCad, ultAlt = @ultAlt, pais = @pais where codigo = @codigo";
             }
             using (SqlCommand cmd = new SqlCommand(mSql, cnn))
             {
                 cmd.Parameters.AddWithValue("@estado", oEstado.Estado);
-                cmd.Parameters.AddWithValue("@sigla", oEstado.Uf);
+                cmd.Parameters.AddWithValue("@uf", oEstado.Uf);
                 cmd.Parameters.AddWithValue("@pais_id", oEstado.OPais.Codigo);
+                cmd.Parameters.AddWithValue("@pais", oEstado.OPais.Pais);
                 cmd.Parameters.AddWithValue("@datCad", oEstado.DatCad);
                 cmd.Parameters.AddWithValue("@ultAlt", oEstado.UltAlt);
                 cmd.Parameters.AddWithValue("@codigo", oEstado.Codigo);

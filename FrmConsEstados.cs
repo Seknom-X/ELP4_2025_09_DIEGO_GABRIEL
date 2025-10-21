@@ -56,6 +56,7 @@ namespace PaisEstadoCidade
             item.SubItems.Add(oEstado.Estado);
             item.SubItems.Add(oEstado.Uf);
             item.SubItems.Add(Convert.ToString(oEstado.OPais.Codigo));
+            item.SubItems.Add(oEstado.OPais.Pais);
             ListV.Items.Add(item);
         }
         public override void SetFrmCadastro(object obj)

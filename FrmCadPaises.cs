@@ -31,6 +31,7 @@ namespace PaisEstadoCidade
             oPais.Sigla = txtSigla.Text;
             oPais.Ddi = txtDDI.Text;
             oPais.Moeda = txtMoeda.Text;
+            aCtrlPaises.Salvar(oPais);
             MessageBox.Show(aCtrlPaises.Salvar(oPais));
         }
         public override void CarregaTxt()
