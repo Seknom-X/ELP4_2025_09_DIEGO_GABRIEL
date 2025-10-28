@@ -17,15 +17,7 @@ namespace PaisEstadoCidade
         }
         public override string Salvar(object obj)
         {
-            //base.Salvar(obj);
-            Cidades aCidade = (Cidades)obj;
-            if (aCidade.Codigo == 0)
-                aColCidades.Inserir((Cidades)obj);
-            else
-            {
-
-            }
-            return null;
+            return aDaoCidades.Salvar(obj);
         }
     }
 }
