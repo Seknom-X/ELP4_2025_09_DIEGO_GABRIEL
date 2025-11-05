@@ -16,10 +16,22 @@ namespace PaisEstadoCidade
         public FrmConsPaises()
         {
             InitializeComponent();
+            aCtrlPaises = new CtrlPaises();
+            oPais = new Paises();
+            try
+            {
+                oFrmCadPaises = new FrmCadPaises();
+                this.SetFrmCadastro(oFrmCadPaises);
+                this.ConhecaObj(oPais, aCtrlPaises);
+            }
+            catch
+            {
+            }
+
+            CarregarLV();
         }
         public override void Pesquisar()
         {
-            
         }
         public override void Incluir()
         {
@@ -50,15 +62,34 @@ namespace PaisEstadoCidade
         }
         protected override void CarregarLV()
         {
-            //foreach (var oPais in CtrlPaises.TodosPaises)
+            if (aCtrlPaises == null)
+                aCtrlPaises = new CtrlPaises();
+
+            ListV.Items.Clear();
+
+            var Lista = aCtrlPaises.Listar();
+            if (Lista == null)
+                return;
+
+            ListV.BeginUpdate();
+            try
             {
-            ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
-            item.SubItems.Add(oPais.Pais);
-            item.SubItems.Add(oPais.Sigla);
-            item.SubItems.Add(oPais.Ddi);
-            item.SubItems.Add(oPais.Moeda);
-            ListV.Items.Add(item);
+                foreach (var oPais in Lista)
+                {
+                    ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
+                    item.SubItems.Add(oPais.Pais);
+                    item.SubItems.Add(oPais.Sigla);
+                    item.SubItems.Add(oPais.Ddi);
+                    item.SubItems.Add(oPais.Moeda);
+                    item.Tag = oPais;
+                    ListV.Items.Add(item);
+                }
             }
+            finally
+            {
+                ListV.EndUpdate();
+            }
+
         }
         public override void SetFrmCadastro(object obj)
         {
@@ -79,6 +110,11 @@ namespace PaisEstadoCidade
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListV_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

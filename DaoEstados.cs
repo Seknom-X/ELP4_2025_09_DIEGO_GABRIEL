@@ -23,6 +23,7 @@ namespace PaisEstadoCidade
         }
         public override List<Estados> Pesquisar(string chave)
         {
+            var Lista = new List<Estados>();
             return null;
         }
 
@@ -32,17 +33,17 @@ namespace PaisEstadoCidade
             string mSql = "", mOk = "";
             if (oEstado.Codigo == 0)
             {
-                mSql = "insert into estados(Estado, Uf, Pais_id, datCad, ultAlt, Pais) values(@estado, @uf, @pais_id, @datCad, @ultAlt, @pais)";
+                mSql = "insert into estados(estado, uf, pais_id, pais, datcad, ultalt) values(@estado, @uf, @pais_id, @pais, @datCad, @ultAlt)";
             }
             else
             {
-                mSql = "update estados set estado = @estado, uf = @uf, pais_id = @pais_id, datCad = @datCad, ultAlt = @ultAlt, pais = @pais where codigo = @codigo";
+                mSql = "update estados set estado = @estado, uf = @uf, pais_id= @pais_id, pais = @pais, datcad = @datCad, ultalt = @ultAlt where id = @codigo";
             }
             using (SqlCommand cmd = new SqlCommand(mSql, cnn))
             {
                 cmd.Parameters.AddWithValue("@estado", oEstado.Estado);
                 cmd.Parameters.AddWithValue("@uf", oEstado.Uf);
-                cmd.Parameters.AddWithValue("@pais_id", oEstado.OPais.Codigo);
+                cmd.Parameters.AddWithValue("@pais_id", oEstado.OPais == null ? 0 : oEstado.OPais.Codigo);
                 cmd.Parameters.AddWithValue("@pais", oEstado.OPais.Pais);
                 cmd.Parameters.AddWithValue("@datCad", oEstado.DatCad);
                 cmd.Parameters.AddWithValue("@ultAlt", oEstado.UltAlt);

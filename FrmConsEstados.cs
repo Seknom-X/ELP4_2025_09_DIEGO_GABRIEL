@@ -57,6 +57,8 @@ namespace PaisEstadoCidade
             item.SubItems.Add(oEstado.Uf);
             item.SubItems.Add(Convert.ToString(oEstado.OPais.Codigo));
             item.SubItems.Add(oEstado.OPais.Pais);
+            item.Tag = oEstado;
+
             ListV.Items.Add(item);
         }
         public override void SetFrmCadastro(object obj)
@@ -75,6 +77,11 @@ namespace PaisEstadoCidade
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListV_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

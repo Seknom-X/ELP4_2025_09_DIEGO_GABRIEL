@@ -74,5 +74,10 @@ namespace PaisEstadoCidade
             if (ctrl != null)
                 aCtrlCidades = (CtrlCidades)ctrl;
         }
+
+        private void ListV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

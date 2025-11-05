@@ -54,6 +54,7 @@
             this.colUf,
             this.colCodPais,
             this.colPais});
+            this.ListV.SelectedIndexChanged += new System.EventHandler(this.ListV_SelectedIndexChanged);
             // 
             // btnSair
             // 

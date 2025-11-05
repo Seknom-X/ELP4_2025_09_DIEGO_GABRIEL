@@ -19,8 +19,23 @@ namespace PaisEstadoCidade
         public override string Salvar(object obj)
         {
             //base.Salvar(obj);
-            return aDaoPaises.Salvar(obj);
-            
+            return aDaoPaises.Salvar(obj);   
+        }
+        public override string Excluir(object obj)
+        {
+            return aDaoPaises.Excluir(obj);
+        }
+        public override List<Paises> Listar()
+        {
+            return aDaoPaises.Listar();
+        }
+        public override Object CarregaObj(int chave)
+        {
+            return aDaoPaises.CarregaObj(chave);
+        }
+        public override List<Paises> Pesquisar(string chave)
+        {
+            return aDaoPaises.Pesquisar(chave);
         }
     }
 }

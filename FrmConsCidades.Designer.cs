@@ -53,6 +53,7 @@
             this.colDDD,
             this.colCodEstado,
             this.colEstado});
+            this.ListV.SelectedIndexChanged += new System.EventHandler(this.ListV_SelectedIndexChanged);
             // 
             // btnSair
             // 

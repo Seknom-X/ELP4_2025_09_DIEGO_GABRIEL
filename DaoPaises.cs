@@ -15,6 +15,7 @@ namespace PaisEstadoCidade
         }
         public override List<Paises> Listar()
         {
+
             return null;
         }
         public override Object CarregaObj(int chave)
@@ -23,6 +24,7 @@ namespace PaisEstadoCidade
         }
         public override List<Paises> Pesquisar(string chave)
         {
+            var Lista = new List<Paises>();
             return null;
         }
 
@@ -32,11 +34,11 @@ namespace PaisEstadoCidade
             string mSql = "", mOk = "";
             if (oPais.Codigo == 0)
             {
-                mSql = "insert into paises(Pais, Sigla, DDI, Moeda, datCad, ultAlt) values(@pais, @sigla, @ddi, @moeda, @datCad, @ultAlt)";
+                mSql = "insert into paises(pais, sigla, ddi, moeda, datcad, ultalt) values(@pais, @sigla, @ddi, @moeda, @datCad, @ultAlt)";
             }
             else
             {
-                mSql = "update paises set pais = @pais, sigla = @sigla, ddi = @ddi, moeda = @moeda, datCad = @datCad, ultAlt = @ultAlt where codigo = @codigo";
+                mSql = "update paises set pais = @pais, sigla = @sigla, ddi = @ddi, moeda = @moeda, datcad = @datCad, ultalt = @ultAlt where id = @codigo";
             }
             using (SqlCommand cmd = new SqlCommand(mSql, cnn))
             {

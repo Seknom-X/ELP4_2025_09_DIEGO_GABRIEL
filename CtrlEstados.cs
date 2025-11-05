@@ -19,5 +19,22 @@ namespace PaisEstadoCidade
         {
             return aDaoEstados.Salvar(obj);
         }
+        public override string Excluir(object obj)
+        {
+            return aDaoEstados.Excluir(obj);
+        }
+        public override List<Estados> Listar()
+        {
+            return aDaoEstados.Listar();
+        }
+        public override Object CarregaObj(int chave)
+        {
+            return aDaoEstados.CarregaObj(chave);
+        }
+        public override List<Estados> Pesquisar(string chave)
+        {
+            return aDaoEstados.Pesquisar(chave);
+        }
     }
 }
+
