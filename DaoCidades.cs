@@ -15,7 +15,26 @@ namespace PaisEstadoCidade
         }
         public override List<Cidades> Listar()
         {
-            return null;
+            string mSql = "select * from cidades order by id";
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<Cidades> lista = new List<Cidades>();
+                while (reader.Read())
+                {
+                    Cidades aCidade = new Cidades();
+                    aCidade.Codigo = Convert.ToInt32(reader["id"]);
+                    aCidade.DatCad = Convert.ToDateTime(reader["datCad"]);
+                    aCidade.UltAlt = Convert.ToDateTime(reader["ultAlt"]);
+                    aCidade.Cidade = reader["Cidade"].ToString();
+                    aCidade.Ddd = reader["DDD"].ToString();
+                    aCidade.OEstado.Estado = reader["Estado"].ToString();
+                    aCidade.OEstado.Codigo = Convert.ToInt32(reader["Estado_id"]);
+                    lista.Add(aCidade);
+                }
+                reader.Close();
+                return lista;
+            }
         }
         public override Object CarregaObj(int chave)
         {

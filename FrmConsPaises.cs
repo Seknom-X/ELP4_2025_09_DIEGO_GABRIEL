@@ -16,19 +16,6 @@ namespace PaisEstadoCidade
         public FrmConsPaises()
         {
             InitializeComponent();
-            aCtrlPaises = new CtrlPaises();
-            oPais = new Paises();
-            try
-            {
-                oFrmCadPaises = new FrmCadPaises();
-                this.SetFrmCadastro(oFrmCadPaises);
-                this.ConhecaObj(oPais, aCtrlPaises);
-            }
-            catch
-            {
-            }
-
-            CarregarLV();
         }
         public override void Pesquisar()
         {
@@ -71,9 +58,6 @@ namespace PaisEstadoCidade
             if (Lista == null)
                 return;
 
-            ListV.BeginUpdate();
-            try
-            {
                 foreach (var oPais in Lista)
                 {
                     ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
@@ -84,12 +68,6 @@ namespace PaisEstadoCidade
                     item.Tag = oPais;
                     ListV.Items.Add(item);
                 }
-            }
-            finally
-            {
-                ListV.EndUpdate();
-            }
-
         }
         public override void SetFrmCadastro(object obj)
         {
@@ -102,6 +80,7 @@ namespace PaisEstadoCidade
                 oPais = (Paises)obj;
             if(ctrl != null)
                 aCtrlPaises = (CtrlPaises)ctrl;
+            this.CarregarLV();
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)

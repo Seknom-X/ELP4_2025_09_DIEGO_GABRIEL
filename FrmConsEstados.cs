@@ -52,14 +52,24 @@ namespace PaisEstadoCidade
         }
         protected override void CarregarLV()
         {
-            ListViewItem item = new ListViewItem(Convert.ToString(oEstado.Codigo));
-            item.SubItems.Add(oEstado.Estado);
-            item.SubItems.Add(oEstado.Uf);
-            item.SubItems.Add(Convert.ToString(oEstado.OPais.Codigo));
-            item.SubItems.Add(oEstado.OPais.Pais);
-            item.Tag = oEstado;
+            if (aCtrlEstados == null)
+                aCtrlEstados = new CtrlEstados();
 
-            ListV.Items.Add(item);
+            ListV.Items.Clear();
+
+            var Lista = aCtrlEstados.Listar();
+            if (Lista == null)
+                return;
+
+            foreach (var oEstado in Lista)
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(oEstado.Codigo));
+                item.SubItems.Add(oEstado.Estado);
+                item.SubItems.Add(oEstado.Uf);
+                item.SubItems.Add(Convert.ToString(oEstado.OPais.Codigo));
+                item.SubItems.Add(oEstado.OPais.Pais);
+                ListV.Items.Add(item);
+            }
         }
         public override void SetFrmCadastro(object obj)
         {
@@ -74,6 +84,7 @@ namespace PaisEstadoCidade
                 oEstado = (Estados)obj;
             if (ctrl != null)
                 aCtrlEstados = (CtrlEstados)ctrl;
+            this.CarregarLV();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
