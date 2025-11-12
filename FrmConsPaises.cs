@@ -19,6 +19,23 @@ namespace PaisEstadoCidade
         }
         public override void Pesquisar()
         {
+            ListV.Items.Clear();
+
+
+            var Lista = aCtrlPaises.Pesquisar(this.txtCodigo.Text);
+            if (Lista == null)
+                return;
+
+            foreach (var oPais in Lista)
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(oPais.Codigo));
+                item.SubItems.Add(oPais.Pais);
+                item.SubItems.Add(oPais.Sigla);
+                item.SubItems.Add(oPais.Ddi);
+                item.SubItems.Add(oPais.Moeda);
+                item.Tag = oPais;
+                ListV.Items.Add(item);
+            }
         }
         public override void Incluir()
         {
@@ -54,6 +71,7 @@ namespace PaisEstadoCidade
 
             ListV.Items.Clear();
 
+
             var Lista = aCtrlPaises.Listar();
             if (Lista == null)
                 return;
@@ -78,9 +96,12 @@ namespace PaisEstadoCidade
         {
             if(obj != null)
                 oPais = (Paises)obj;
-            if(ctrl != null)
+            if (ctrl != null)
                 aCtrlPaises = (CtrlPaises)ctrl;
+                
             this.CarregarLV();
+            
+            
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -94,6 +115,16 @@ namespace PaisEstadoCidade
         }
 
         private void ListV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
         {
 
         }

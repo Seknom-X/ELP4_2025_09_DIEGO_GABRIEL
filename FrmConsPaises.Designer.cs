@@ -48,6 +48,10 @@
             // 
             this.btnExcluir.Location = new System.Drawing.Point(612, 415);
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // ListV
             // 
             this.ListV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -57,10 +61,15 @@
             this.colMoeda});
             this.ListV.SelectedIndexChanged += new System.EventHandler(this.ListV_SelectedIndexChanged);
             // 
+            // txtCodigo
+            // 
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(693, 415);
             this.btnSair.Size = new System.Drawing.Size(95, 23);
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // colPais
             // 

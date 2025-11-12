@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -35,15 +36,52 @@ namespace PaisEstadoCidade
                 reader.Close();
                 return lista;
             }
-            }
+        }
         public override Object CarregaObj(int chave)
         {
-            return null;
+            string mSql = $"select * from paises where id = {chave}";
+            Paises oPais = null;
+
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    oPais = new Paises();
+                    oPais.Codigo = Convert.ToInt32(reader["id"]);
+                    oPais.DatCad = Convert.ToDateTime(reader["datCad"]);
+                    oPais.UltAlt = Convert.ToDateTime(reader["ultAlt"]);
+                    oPais.Pais = reader["Pais"].ToString();
+                    oPais.Sigla = reader["Sigla"].ToString();
+                    oPais.Ddi = reader["DDI"].ToString();
+                    oPais.Moeda = reader["Moeda"].ToString();
+                }
+                reader.Close();
+            }
+            return oPais;
         }
         public override List<Paises> Pesquisar(string chave)
         {
-            var Lista = new List<Paises>();
-            return null;
+            string mSql = $"select * from paises where pais like '%{chave}%' or id like '%{chave}%' or sigla like '%{chave}%' or ddi like '%{chave}%' or moeda like '%{chave}%'";
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<Paises> lista = new List<Paises>();
+                while (reader.Read())
+                {
+                    Paises oPais = new Paises();
+                    oPais.Codigo = Convert.ToInt32(reader["id"]);
+                    oPais.DatCad = Convert.ToDateTime(reader["datCad"]);
+                    oPais.UltAlt = Convert.ToDateTime(reader["ultAlt"]);
+                    oPais.Pais = reader["Pais"].ToString();
+                    oPais.Sigla = reader["Sigla"].ToString();
+                    oPais.Ddi = reader["DDI"].ToString();
+                    oPais.Moeda = reader["Moeda"].ToString();
+                    lista.Add(oPais);
+                }
+                reader.Close();
+                return lista;
+            }
         }
 
         public override string Salvar(object obj)

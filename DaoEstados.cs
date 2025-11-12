@@ -11,7 +11,12 @@ namespace PaisEstadoCidade
     {
         public override string Excluir(object obj)
         {
-            return null;
+            string mSql = "delete paises where id = codigo";
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+
+            }
+                return null;
         }
         public override List<Estados> Listar()
         {
@@ -42,8 +47,26 @@ namespace PaisEstadoCidade
         }
         public override List<Estados> Pesquisar(string chave)
         {
-            var Lista = new List<Estados>();
-            return null;
+            string mSql = $"select * from estados where estado like '%{chave}%' or id like '%{chave}%' or Uf like '%{chave}%' or pais_id like '%{chave}%' or pais like '%{chave}%'";
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<Estados> lista = new List<Estados>();
+                while (reader.Read())
+                {
+                    Estados oEstado = new Estados();
+                    oEstado.Codigo = Convert.ToInt32(reader["id"]);
+                    oEstado.DatCad = Convert.ToDateTime(reader["datCad"]);
+                    oEstado.UltAlt = Convert.ToDateTime(reader["ultAlt"]);
+                    oEstado.Estado = reader["Estado"].ToString();
+                    oEstado.Uf = reader["UF"].ToString();
+                    oEstado.OPais.Pais = reader["Pais"].ToString();
+                    oEstado.OPais.Codigo = Convert.ToInt32(reader["Pais_id"]);
+                    lista.Add(oEstado);
+                }
+                reader.Close();
+                return lista;
+            }
         }
 
         public override string Salvar(object obj)

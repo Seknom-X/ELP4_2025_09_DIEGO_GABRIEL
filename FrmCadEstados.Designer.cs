@@ -106,6 +106,7 @@
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(129, 22);
             this.txtPais.TabIndex = 3;
+            this.txtPais.TextChanged += new System.EventHandler(this.txtPais_TextChanged);
             // 
             // btnBuscar
             // 

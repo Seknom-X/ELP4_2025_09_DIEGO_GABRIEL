@@ -13,6 +13,7 @@ namespace PaisEstadoCidade
         FrmConsEstados oFrmConsEstados;
         Cidades aCidade;
         CtrlCidades aCtrlCidades;
+        CtrlEstados aCtrlEstados;
   
         public FrmCadCidades()
         {
@@ -82,7 +83,7 @@ namespace PaisEstadoCidade
         {
             string btnSair = oFrmConsEstados.btnSair.Text;
             oFrmConsEstados.btnSair.Text = "Selecionar";
-            oFrmConsEstados.ConhecaObj(aCidade.OEstado, aCtrlCidades);
+            oFrmConsEstados.ConhecaObj(aCidade.OEstado, aCtrlEstados);
             oFrmConsEstados.ShowDialog();
             this.txtCodigoEstado.Text = Convert.ToString(aCidade.OEstado.Codigo);
             this.txtEstado.Text = aCidade.OEstado.Estado.ToString();

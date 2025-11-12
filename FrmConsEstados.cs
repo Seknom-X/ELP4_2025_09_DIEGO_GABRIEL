@@ -19,8 +19,21 @@ namespace PaisEstadoCidade
         }
         public override void Pesquisar()
         {
-            oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
-            oFrmCadEstados.ShowDialog();
+            ListV.Items.Clear();
+
+            var Lista = aCtrlEstados.Pesquisar(this.txtCodigo.Text);
+            if (Lista == null)
+                return;
+
+            foreach (var oEstado in Lista)
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(oEstado.Codigo));
+                item.SubItems.Add(oEstado.Estado);
+                item.SubItems.Add(oEstado.Uf);
+                item.SubItems.Add(Convert.ToString(oEstado.OPais.Codigo));
+                item.SubItems.Add(oEstado.OPais.Pais);
+                ListV.Items.Add(item);
+            }
         }
         public override void Incluir()
         {
