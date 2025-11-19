@@ -11,7 +11,21 @@ namespace PaisEstadoCidade
     {
         public override string Excluir(object obj)
         {
-            return null;
+            Cidades aCidade = (Cidades)obj;
+            string mSql = $"delete from cidades where id = @id";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", aCidade.Codigo);
+                    cmd.ExecuteNonQuery();
+                }
+                return $"Cidade '{aCidade.Cidade}' removido com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                return $"ERRO: {ex.Message}";
+            }
         }
         public override List<Cidades> Listar()
         {
@@ -38,11 +52,49 @@ namespace PaisEstadoCidade
         }
         public override Object CarregaObj(int chave)
         {
-            return null;
+            string mSql = $"select * from cidades where id = {chave}";
+            Cidades aCidade = null;
+
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    aCidade = new Cidades();
+                    aCidade.Codigo = Convert.ToInt32(reader["id"]);
+                    aCidade.DatCad = Convert.ToDateTime(reader["datCad"]);
+                    aCidade.UltAlt = Convert.ToDateTime(reader["ultAlt"]);
+                    aCidade.Cidade = reader["Estado"].ToString();
+                    aCidade.Ddd = reader["Ddd"].ToString();
+                    aCidade.OEstado.Estado = reader["Estado"].ToString();
+                    aCidade.OEstado.Codigo = Convert.ToInt32(reader["Estado_id"]);
+                }
+                reader.Close();
+            }
+            return aCidade;
         }
         public override List<Cidades> Pesquisar(string chave)
         {
-            return null;
+            string mSql = $"select * from cidades where cidade like '%{chave}%' or id like '%{chave}%' or Ddd like '%{chave}%' or estado_id like '%{chave}%' or estado like '%{chave}%'";
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<Cidades> lista = new List<Cidades>();
+                while (reader.Read())
+                {
+                    Cidades aCidade = new Cidades();
+                    aCidade.Codigo = Convert.ToInt32(reader["id"]);
+                    aCidade.DatCad = Convert.ToDateTime(reader["datCad"]);
+                    aCidade.UltAlt = Convert.ToDateTime(reader["ultAlt"]);
+                    aCidade.Cidade = reader["Cidade"].ToString();
+                    aCidade.Ddd = reader["Ddd"].ToString();
+                    aCidade.OEstado.Estado = reader["Estado"].ToString();
+                    aCidade.OEstado.Codigo = Convert.ToInt32(reader["Estado_id"]);
+                    lista.Add(aCidade);
+                }
+                reader.Close();
+                return lista;
+            }
         }
 
         public override string Salvar(object obj)

@@ -136,6 +136,7 @@
             this.txtCodigoPais.Size = new System.Drawing.Size(100, 22);
             this.txtCodigoPais.TabIndex = 3;
             this.txtCodigoPais.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCodigoPais.TextChanged += new System.EventHandler(this.txtCodigoPais_TextChanged);
             // 
             // FrmCadEstados
             // 

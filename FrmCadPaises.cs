@@ -31,8 +31,10 @@ namespace PaisEstadoCidade
             oPais.Sigla = txtSigla.Text;
             oPais.Ddi = txtDDI.Text;
             oPais.Moeda = txtMoeda.Text;
-            aCtrlPaises.Salvar(oPais);
-            MessageBox.Show(aCtrlPaises.Salvar(oPais));
+            if (this.btnSalvar.Text == "&Salvar")
+                MessageBox.Show(aCtrlPaises.Salvar(oPais.Clone()));
+            else if (this.btnSalvar.Text == "Excluir")
+                MessageBox.Show(aCtrlPaises.Excluir(oPais.Clone()));
         }
         public override void CarregaTxt()
         {

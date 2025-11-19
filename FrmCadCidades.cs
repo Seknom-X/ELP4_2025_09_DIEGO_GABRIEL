@@ -35,7 +35,10 @@ namespace PaisEstadoCidade
             aCidade.Ddd = txtDDD.Text;
             aCidade.OEstado.Codigo = Convert.ToInt32(txtCodigoEstado.Text);
             aCidade.OEstado.Estado = txtEstado.Text;
-            MessageBox.Show(aCtrlCidades.Salvar(aCidade));
+            if (this.btnSalvar.Text == "&Salvar")
+                MessageBox.Show(aCtrlCidades.Salvar(aCidade.Clone()));
+            else if (this.btnSalvar.Text == "Excluir")
+                MessageBox.Show(aCtrlCidades.Excluir(aCidade.Clone()));
         }
         public override void CarregaTxt()
         {

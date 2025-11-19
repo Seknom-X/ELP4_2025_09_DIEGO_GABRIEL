@@ -47,6 +47,7 @@
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(612, 415);
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnPesquisar
             // 

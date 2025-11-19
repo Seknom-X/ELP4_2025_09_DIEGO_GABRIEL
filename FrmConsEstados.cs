@@ -45,6 +45,8 @@ namespace PaisEstadoCidade
         }
         public override void Excluir()
         {
+            int chave = Convert.ToInt32(ListV.SelectedItems[0].SubItems[0].Text);
+            oEstado = (Estados)aCtrlEstados.CarregaObj(chave);
             string aux;
             oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.LimpaTxt();
@@ -55,13 +57,17 @@ namespace PaisEstadoCidade
             oFrmCadEstados.ShowDialog();
             oFrmCadEstados.DesbloquearTxt();
             oFrmCadEstados.btnSalvar.Text = aux;
+            this.CarregarLV();
         }
         public override void Alterar()
         {
+            int chave = Convert.ToInt32(ListV.SelectedItems[0].SubItems[0].Text);
+            oEstado = (Estados)aCtrlEstados.CarregaObj(chave);
             oFrmCadEstados.ConhecaObj(oEstado, aCtrlEstados);
             oFrmCadEstados.LimpaTxt();
             oFrmCadEstados.CarregaTxt();
             oFrmCadEstados.ShowDialog();
+            this.CarregarLV();
         }
         protected override void CarregarLV()
         {
@@ -81,6 +87,7 @@ namespace PaisEstadoCidade
                 item.SubItems.Add(oEstado.Uf);
                 item.SubItems.Add(Convert.ToString(oEstado.OPais.Codigo));
                 item.SubItems.Add(oEstado.OPais.Pais);
+                item.Tag = oEstado;
                 ListV.Items.Add(item);
             }
         }
@@ -107,7 +114,20 @@ namespace PaisEstadoCidade
 
         private void ListV_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.ListV.SelectedItems.Count > 0)
+            {
+                ListViewItem item = this.ListV.SelectedItems[0];
 
+                // Agora pegamos o país armazenado no Tag
+                Estados estadoSelecionado = (Estados)item.Tag;
+
+                // Atualiza o objeto oPais passado pelo outro formulário
+                oEstado.Codigo = estadoSelecionado.Codigo;
+                oEstado.Estado = estadoSelecionado.Estado;
+                oEstado.Uf = estadoSelecionado.Uf;
+                oEstado.OPais.Codigo = estadoSelecionado.OPais.Codigo;
+                oEstado.OPais.Pais = estadoSelecionado.OPais.Pais;
+            }
         }
     }
 }

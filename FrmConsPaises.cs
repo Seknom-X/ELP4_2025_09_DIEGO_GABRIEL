@@ -46,6 +46,8 @@ namespace PaisEstadoCidade
         }
         public override void Excluir()
         {
+            int chave = Convert.ToInt32(ListV.SelectedItems[0].SubItems[0].Text);
+            oPais = (Paises)aCtrlPaises.CarregaObj(chave);
             string aux;
             oFrmCadPaises.ConhecaObj(oPais, aCtrlPaises);
             oFrmCadPaises.LimpaTxt();
@@ -56,13 +58,17 @@ namespace PaisEstadoCidade
             oFrmCadPaises.ShowDialog();
             oFrmCadPaises.DesbloquearTxt();
             oFrmCadPaises.btnSalvar.Text = aux;
+            this.CarregarLV();
         }
         public override void Alterar()
         {
+            int chave = Convert.ToInt32(ListV.SelectedItems[0].SubItems[0].Text);
+            oPais = (Paises)aCtrlPaises.CarregaObj(chave);
             oFrmCadPaises.ConhecaObj(oPais, aCtrlPaises);
             oFrmCadPaises.LimpaTxt();
             oFrmCadPaises.CarregaTxt();
             oFrmCadPaises.ShowDialog();
+            this.CarregarLV();
         }
         protected override void CarregarLV()
         {
@@ -116,7 +122,20 @@ namespace PaisEstadoCidade
 
         private void ListV_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.ListV.SelectedItems.Count > 0)
+            {
+                ListViewItem item = this.ListV.SelectedItems[0];
 
+                // Agora pegamos o país armazenado no Tag
+                Paises paisSelecionado = (Paises)item.Tag;
+
+                // Atualiza o objeto oPais passado pelo outro formulário
+                oPais.Codigo = paisSelecionado.Codigo;
+                oPais.Pais = paisSelecionado.Pais;
+                oPais.Sigla = paisSelecionado.Sigla;
+                oPais.Ddi = paisSelecionado.Ddi;
+                oPais.Moeda = paisSelecionado.Moeda;
+            }
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -125,6 +144,11 @@ namespace PaisEstadoCidade
         }
 
         private void btnSair_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
 
         }

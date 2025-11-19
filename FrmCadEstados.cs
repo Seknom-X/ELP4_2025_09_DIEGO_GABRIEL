@@ -35,7 +35,10 @@ namespace PaisEstadoCidade
             oEstado.Uf = txtUF.Text;
             oEstado.OPais.Codigo = Convert.ToInt32(txtCodigoPais.Text);
             oEstado.OPais.Pais = txtPais.Text;
-            MessageBox.Show(aCtrlEstados.Salvar(oEstado));
+            if (this.btnSalvar.Text == "&Salvar")
+                MessageBox.Show(aCtrlEstados.Salvar(oEstado.Clone()));
+            else if (this.btnSalvar.Text == "Excluir")
+                MessageBox.Show(aCtrlEstados.Excluir(oEstado.Clone()));
         }
         public override void CarregaTxt()
         {   
@@ -96,6 +99,11 @@ namespace PaisEstadoCidade
         }
 
         private void txtPais_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtCodigoPais_TextChanged(object sender, EventArgs e)
         {
 
         }

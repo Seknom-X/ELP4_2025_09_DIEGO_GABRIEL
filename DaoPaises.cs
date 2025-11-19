@@ -12,7 +12,21 @@ namespace PaisEstadoCidade
     {
         public override string Excluir(object obj)
         {
-            return null;
+            Paises oPais = (Paises)obj;
+            string mSql = $"delete from paises where id = @id";
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", oPais.Codigo);
+                    cmd.ExecuteNonQuery();
+                }
+                return $"País '{oPais.Pais}' removido com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                return $"ERRO: País '{oPais.Pais}' vinculado a um ou mais estados!";
+            }
         }
         public override List<Paises> Listar()
         {

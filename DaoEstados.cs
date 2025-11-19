@@ -11,12 +11,21 @@ namespace PaisEstadoCidade
     {
         public override string Excluir(object obj)
         {
-            string mSql = "delete paises where id = codigo";
-            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            Estados oEstado = (Estados)obj;
+            string mSql = $"delete from estados where id = @id";
+            try
             {
-
+                using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+                {
+                    cmd.Parameters.AddWithValue("@id", oEstado.Codigo);
+                    cmd.ExecuteNonQuery();
+                }
+                return $"Estado '{oEstado.Estado}' removido com sucesso!";
             }
-                return null;
+            catch (Exception ex)
+            {
+                return $"ERRO: Estado '{oEstado.Estado}' vinculado a um ou mais cidades!";
+            }
         }
         public override List<Estados> Listar()
         {
@@ -43,7 +52,26 @@ namespace PaisEstadoCidade
         }
         public override Object CarregaObj(int chave)
         {
-            return null;
+            string mSql = $"select * from estados where id = {chave}";
+            Estados oEstado = null;
+
+            using (SqlCommand cmd = new SqlCommand(mSql, cnn))
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    oEstado = new Estados();
+                    oEstado.Codigo = Convert.ToInt32(reader["id"]);
+                    oEstado.DatCad = Convert.ToDateTime(reader["datCad"]);
+                    oEstado.UltAlt = Convert.ToDateTime(reader["ultAlt"]);
+                    oEstado.Estado = reader["Estado"].ToString();
+                    oEstado.Uf = reader["Uf"].ToString();
+                    oEstado.OPais.Pais = reader["Pais"].ToString();
+                    oEstado.OPais.Codigo = Convert.ToInt32(reader["Pais_id"]);
+                }
+                reader.Close();
+            }
+            return oEstado;
         }
         public override List<Estados> Pesquisar(string chave)
         {

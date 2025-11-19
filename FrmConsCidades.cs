@@ -33,6 +33,8 @@ namespace PaisEstadoCidade
         }
         public override void Excluir()
         {
+            int chave = Convert.ToInt32(ListV.SelectedItems[0].SubItems[0].Text);
+            aCidade = (Cidades)aCtrlCidades.CarregaObj(chave);
             string aux;
             oFrmCadCidades.ConhecaObj(aCidade, aCtrlCidades);
             oFrmCadCidades.LimpaTxt();
@@ -43,14 +45,19 @@ namespace PaisEstadoCidade
             oFrmCadCidades.ShowDialog();
             oFrmCadCidades.DesbloquearTxt();
             oFrmCadCidades.btnSalvar.Text = aux;
+            this.CarregarLV();
         }
         public override void Alterar()
         {
+            int chave = Convert.ToInt32(ListV.SelectedItems[0].SubItems[0].Text);
+            aCidade = (Cidades)aCtrlCidades.CarregaObj(chave);
             oFrmCadCidades.ConhecaObj(aCidade, aCtrlCidades);
             oFrmCadCidades.LimpaTxt();
             oFrmCadCidades.CarregaTxt();
             oFrmCadCidades.ShowDialog();
+            this.CarregarLV();
         }
+        
         protected override void CarregarLV()
         {
             if (aCtrlCidades == null)
@@ -90,7 +97,20 @@ namespace PaisEstadoCidade
 
         private void ListV_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.ListV.SelectedItems.Count > 0)
+            {
+                ListViewItem item = this.ListV.SelectedItems[0];
 
+                // Agora pegamos o país armazenado no Tag
+                Cidades CidadeSelecionado = (Cidades)item.Tag;
+
+                // Atualiza o objeto oPais passado pelo outro formulário
+                aCidade.Codigo = CidadeSelecionado.Codigo;
+                aCidade.Cidade = CidadeSelecionado.Cidade;
+                aCidade.Ddd = CidadeSelecionado.Ddd;
+                aCidade.OEstado.Codigo = CidadeSelecionado.OEstado.Codigo;
+                aCidade.OEstado.Estado = CidadeSelecionado.OEstado.Estado;
+            }
         }
     }
 }
